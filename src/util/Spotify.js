@@ -1,5 +1,7 @@
+require('dotenv').config();
+
 let userAccessToken;
-const clientId = '0319edfd61ff4c169eabc19a300f22a8';
+const clientId = process.env.REACT_APP_API_KEY;
 const redirectUri = 'http://localhost:3000/';
 
 const Spotify = {
@@ -31,7 +33,6 @@ const Spotify = {
 			headers: { Authorization: `Bearer ${accessToken}` }
 		})
 		.then(response => {
-			// console.log(response.json);
 			return response.json();
 		})
 		.then(jsonResponse => {
