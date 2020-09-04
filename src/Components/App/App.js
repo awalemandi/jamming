@@ -3,7 +3,9 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import UserCard from '../UserCard/UserCard';
 import Spotify from "../../util/Spotify";
+
 
 
 export default class App extends React.Component {
@@ -12,7 +14,9 @@ export default class App extends React.Component {
     this.state = {
       searchResults: [],
       playlistName: 'My Playlist',
-      playlistTracks: []
+      playlistTracks: [],
+      displayPhotoUrl: '',
+      displayName: 'user',
     };
 
     this.addTrack = this.addTrack.bind(this);
@@ -63,9 +67,12 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Mads Ja<span className="highlight">mmm</span>ing</h1>
+        <div className="Nav">
+          <h1>Ja<span className="highlight">mmm</span>ing<span className="highlight">+</span></h1>
+          <UserCard photoUrl={this.state.displayPhotoUrl} userName={this.state.displayName} />
+        </div>
         <div className="App">
-          <SearchBar onSearch={this.search}/>
+            <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             <Playlist
