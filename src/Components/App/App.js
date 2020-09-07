@@ -24,6 +24,7 @@ export default class App extends React.Component {
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
+    this.updateUserDetails = this.updateUserDetails.bind(this);
   }
 
   addTrack(track) {
@@ -62,6 +63,19 @@ export default class App extends React.Component {
     Spotify.search(searchTerm).then(results => {
       this.setState({ searchResults: results });
     });
+  }
+
+  updateUserDetails() {
+    Spotify.getUserDetails().then(profile => {
+      this.setState({
+        displayPhotoUrl: profile.images[0].url,
+        displayName: profile.display_name,
+      })
+    })
+  }
+
+  componentDidMount() {
+    this.updateUserDetails();
   }
 
   render() {

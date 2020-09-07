@@ -77,6 +77,17 @@ const Spotify = {
 				body: JSON.stringify({ uris: trackUris })
 			});
 		})
+	},
+
+	getUserDetails() {
+		const accessToken = Spotify.getAccessToken();
+		return fetch('https://api.spotify.com/v1/me', {
+			headers: { Authorization: `Bearer ${accessToken}` }
+		})
+			.then(response => {
+				return response.json();
+			})
+			.then(jsonResponse => {return jsonResponse})
 	}
 };
 
