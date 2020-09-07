@@ -5,7 +5,8 @@ import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import UserCard from '../UserCard/UserCard';
 import Spotify from "../../util/Spotify";
-
+import { BarLoader } from 'react-spinners';
+import BackToTop from 'react-back-to-top-button';
 
 
 export default class App extends React.Component {
@@ -15,8 +16,10 @@ export default class App extends React.Component {
       searchResults: [],
       playlistName: 'My Playlist',
       playlistTracks: [],
-      displayPhotoUrl: '',
-      displayName: 'user',
+      displayPhotoUrl: '../../util/avatar.png',
+      displayName: '',
+      userId: '',
+      loading: true
     };
 
     this.addTrack = this.addTrack.bind(this);
@@ -70,6 +73,7 @@ export default class App extends React.Component {
       this.setState({
         displayPhotoUrl: profile.images[0].url,
         displayName: profile.display_name,
+        userId: profile.user_id
       })
     })
   }
@@ -81,20 +85,37 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+
         <div className="Nav">
           <h1>Ja<span className="highlight">mmm</span>ing<span className="highlight">+</span></h1>
-          <UserCard photoUrl={this.state.displayPhotoUrl} userName={this.state.displayName} />
+          <a href={`https://www.spotify.com/us/}`} target="_blank" rel="noopener noreferrer">
+            <UserCard photoUrl={this.state.displayPhotoUrl} userName={this.state.displayName} />
+          </a>
         </div>
+
         <div className="App">
+
             <SearchBar onSearch={this.search} />
           <div className="App-playlist">
+
+            {/* <BarLoader className="loader" loading={this.state.loading} size={70} color={"#fff"} /> */}
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             <Playlist
               playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}
               onRemove={this.removeTrack} onNameChange={this.updatePlaylistName} onSave={this.savePlaylist}
             />
+            <BackToTop
+              showOnScrollUp
+              showAt={300}
+              speed={1500}
+              easing="easeInOutQuint"
+            >
+            <button className="upButton">BACK TOP</button>
+            </BackToTop>
           </div>
+          
         </div>
+         
       </div>
     );
   }

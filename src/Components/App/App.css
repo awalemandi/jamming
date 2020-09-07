@@ -58,6 +58,30 @@ h2 {
   width: 100%;
 }
 
+.loader {
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+}
+
+.upButton {
+  cursor: pointer;
+  width: 8.11rem;
+  padding: .77rem 0;
+  border-radius: 54px;
+  background-color: #010c3f;
+  text-align: center;
+  font-size: .833rem;
+  transition: background-color .25s;
+  border: 0px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.upButton:hover {
+  background-color: rgba(108, 65, 233, .7);
+}
+
 @media only screen and (max-width: 1020px) {
   .App-playlist {
     align-items: center;
@@ -72,3 +96,4 @@ h2 {
     justify-content: center;
   }
 }
+
