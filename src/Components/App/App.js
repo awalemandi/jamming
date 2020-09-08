@@ -6,7 +6,7 @@ import Playlist from '../Playlist/Playlist';
 import UserCard from '../UserCard/UserCard';
 import Spotify from "../../util/Spotify";
 import { BarLoader } from 'react-spinners';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import BackToTop from 'react-back-to-top-button';
 
 
@@ -142,7 +142,6 @@ export default class App extends React.Component {
                 <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             }
 
-            {/* if loading is true, display loader otherwise display playlist */}
             {
               (this.state.playlistLoading) ?
                <BarLoader css={playlistLoaderStyle} loading={this.state.playlistLoading} size={70} color={"#fff"} />

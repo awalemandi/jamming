@@ -31,9 +31,10 @@ export default class SearchBar extends React.Component {
 			<div className="SearchBar">
 				<input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange}/>
 				<button className="SearchButton" onClick={() => {
-					this.runLoader();
-					this.search();
-				}}>SEARCH</button>
+						this.runLoader();
+						this.search();
+					}}>SEARCH
+				</button>
 			</div>
 		)
 	}
