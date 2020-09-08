@@ -30,9 +30,8 @@ h2 {
 .App {
   height: 100%;
   padding: 0 17% 10% 17%;
-  background-image: url('./background_photo_desktop.jpg');
+  background-image: url('./purple-spotify.jpg');
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
@@ -56,12 +55,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.loader {
-  display: block;
-  margin: 0 auto;
-  border-color: red;
 }
 
 .upButton {
