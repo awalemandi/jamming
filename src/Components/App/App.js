@@ -144,7 +144,7 @@ export default class App extends React.Component {
 
             {
               (this.state.playlistLoading) ?
-               <BarLoader css={playlistLoaderStyle} loading={this.state.playlistLoading} size={70} color={"#fff"} />
+              <BarLoader css={playlistLoaderStyle} loading={this.state.playlistLoading} size={70} color={"#fff"} />
               :
               <
                 Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}
