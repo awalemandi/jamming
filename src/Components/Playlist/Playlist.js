@@ -26,7 +26,6 @@ export default class Playlist extends React.Component {
 				<button className="Playlist-save" onClick={() => {
 						this.runLoader();
 						this.props.onSave();
-						alert('Your playlist has been saved! ✨');
 					}
 					}>SAVE TO SPOTIFY
 				</button>

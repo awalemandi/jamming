@@ -81,6 +81,10 @@ export default class App extends React.Component {
           playlistTracks: [],
           playlistLoading: false
         });
+        alert('Your playlist has been saved! 👍');
+      })
+      .catch(e => {
+        console.log(e);
       });
   }
 
@@ -163,7 +167,7 @@ export default class App extends React.Component {
           </div>
           
         </div>
-         
+        
       </div>
     );
   }
